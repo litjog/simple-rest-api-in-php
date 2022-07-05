@@ -1,0 +1,13 @@
+RewriteEngine On
+Options -Indexes
+RewriteRule (^|/)models(/|$) - [F]
+
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+<FilesMatch "^(connection|config|cors).php">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
