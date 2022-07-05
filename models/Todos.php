@@ -4,7 +4,7 @@ require_once '../connection.php';
 
 class Todos extends Connection  {
   public function __construct() {
-   $this->connect();
+    $this->connect();
   }
 
   public function addTodo($body) {
