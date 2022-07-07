@@ -1,14 +1,30 @@
 # Simple REST API in PHP
 
-This is a simple REST API implementation in PHP without framework\
+This is a simple REST API implementation in PHP without framework
+
+This project was built using:
+
+- PHP
+- MySQL
+- JavaScript
+- React
+- Bootstrap
+
 Still lacking in:
 
 - Authentication
 - Request body validation
 
+## How to use
+
+1. Install XAMPP
+2. Download the repo then unzip it place it inside `{YOUR-XAMPP-PATH}/htdocs/{YOUR-PROJECT-DIRECTORY}`
+3. Open XAMPP control panel then start Apache and MySQL
+4. Open your web browser and go to `http://localhost/{YOUR-PROJECT-DIRECTORY}`
+
 ## Available routes
 
-### `POST` `http://localhost/{DIRECTORY-NAME}/api/todos.php`
+### `POST` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos`
 
 Add a todo\
 Request body fields:
@@ -17,15 +33,15 @@ Request body fields:
 | ------ | --------- | -------- |
 | `body` | `string`  | `true`   |
 
-### `GET` `http://localhost/{DIRECTORY-NAME}/api/todos.php`
+### `GET` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos`
 
 Get all todos
 
-### `GET` `http://localhost/{DIRECTORY-NAME}/api/todos.php?id={ID}`
+### `GET` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos/{ID}`
 
 Get a single todo by id
 
-### `PUT` `http://localhost/{DIRECTORY-NAME}/api/todos.php?id={ID}`
+### `PUT` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos/{ID}`
 
 Update a single todo by id\
 Request body fields:
@@ -35,7 +51,7 @@ Request body fields:
 | `body`         | `string`  | `true`   |
 | `hasCompleted` | `boolean` | `true`   |
 
-### `PATCH` `http://localhost/{DIRECTORY-NAME}/api/todos.php?id={ID}`
+### `PATCH` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos/{ID}`
 
 Update a single todo `has_completed` field by id\
 Request body fields:
@@ -44,6 +60,6 @@ Request body fields:
 | -------------- | --------- | -------- |
 | `hasCompleted` | `boolean` | `true`   |
 
-### `DELETE` `http://localhost/{DIRECTORY-NAME}/api/todos.php?id={ID}`
+### `DELETE` `http://localhost/{YOUR-PROJECT-DIRECTORY}/api/todos/{ID}`
 
 Delete a single todo by id
