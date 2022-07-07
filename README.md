@@ -20,7 +20,9 @@ Still lacking in:
 1. Install XAMPP
 2. Download the repo then unzip it place it inside `{YOUR-XAMPP-PATH}/htdocs/{YOUR-PROJECT-DIRECTORY}`
 3. Open XAMPP control panel then start Apache and MySQL
-4. Open your web browser and go to `http://localhost/{YOUR-PROJECT-DIRECTORY}`
+4. Open your web browser and to go `http://localhost/phpmyadmin` and create a new database
+5. Import `todo_app_todos.sql` into your own database
+6. Open a new tab in your web browser and go to `http://localhost/{YOUR-PROJECT-DIRECTORY}`
 
 ## Available routes
 
