@@ -1,9 +1,11 @@
 <?php
 
-require_once 'config.php';
+require_once '../config.php';
 
-class Connection {
+class DB {
   protected $pdo = null;
+
+  public function __construct() {}
 
   public function connect() {
     try {
@@ -12,7 +14,7 @@ class Connection {
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
       ));
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 

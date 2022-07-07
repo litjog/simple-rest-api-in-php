@@ -1,8 +1,8 @@
 <?php
 
-require_once '../connection.php';
+require_once 'DB.php';
 
-class Todos extends Connection  {
+class Todos extends DB  {
   public function __construct() {
     $this->connect();
   }
@@ -13,7 +13,7 @@ class Todos extends Connection  {
       $stmt->execute(array(':body' => $body));
       return $this->pdo->lastInsertId();
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 
@@ -24,7 +24,7 @@ class Todos extends Connection  {
       $rows = $stmt->fetchAll();
       return $rows;
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 
@@ -35,34 +35,34 @@ class Todos extends Connection  {
       $row = $stmt->fetch();
       return $row;
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 
-  public function updateTodo($id, $body, $has_completed) {
+  public function updateTodo($id, $body, $hasCompleted) {
     try {
       $stmt = $this->pdo->prepare('UPDATE todos SET body = :body, has_completed = :has_completed WHERE id = :id;');
       $stmt->execute(array(
         ':body' => $body,
-        ':has_completed' => $has_completed,
+        ':has_completed' => $hasCompleted,
         ':id' => $id
       ));
       return $stmt->rowCount();
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 
-  public function toggleTodo($id, $has_completed) {
+  public function toggleTodo($id, $hasCompleted) {
     try {
       $stmt = $this->pdo->prepare('UPDATE todos SET has_completed = :has_completed WHERE id = :id;');
       $stmt->execute(array(
-        ':has_completed' => $has_completed,
+        ':has_completed' => $hasCompleted,
         ':id' => $id
       ));
       return $stmt->rowCount();
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 
@@ -72,7 +72,7 @@ class Todos extends Connection  {
       $stmt->execute(array(':id' => $id));
       return $stmt->rowCount();
     } catch (PDOException $e) {
-      throw $e;
+      throw new Exception($e->getMessage());
     }
   }
 }
