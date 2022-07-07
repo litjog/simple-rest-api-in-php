@@ -17,18 +17,14 @@ class BaseController {
     }
   
     if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-      $this->successResponseWithoutBody(204);
+      http_response_code(204);
       die();
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'HEAD') {
-      $this->successResponseWithoutBody(200);
+      http_response_code(200);
       die();
     }
-  }
-
-  protected function successResponseWithoutBody($code) {
-    http_response_code($code);
   }
 
   protected function successResponse($code, $data = array(), $message = '') {
